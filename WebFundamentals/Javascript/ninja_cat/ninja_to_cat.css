@@ -1,0 +1,17 @@
+*{
+	padding: 0px;
+	margin: 0px;
+	/*outline: 1px dashed red;*/
+}
+.wrapper{
+	width: auto;
+  margin: auto;
+}
+.main{
+  position: relative;
+
+}
+img{
+	display: block;
+	margin-bottom: 3px;
+}

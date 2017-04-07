@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<html>
+  <body>
+    <h1> Dojo Survey </h1>
+    <form action= '/create' method='post'>
+      Your Name: <input type ='text' name ='name'><br>
+      Dojo Location:
+        <select name ='location'>
+          {% for i in location%}
+            <option name="{{i}}">{{i}}</option>
+          {% endfor %}
+        </select><br>
+      Favorite Language:
+        <select name ='language'>
+          {% for x in language%}
+            <option name="{{x}}">{{x}}</option>
+          {% endfor %}
+        </select><br>
+      Comment (Optional):<br>
+        <textarea name='comment'></textarea><br>
+
+        <input type='submit' value='Submit'>
+      </form>
+    </body>
+</html>

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>jQuery Functions</title>
+    <meta charset="UTF-8">
+    <link href="style.css" rel="stylesheet">
+    <script type= "text/javascript" src = "http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script type = "text/javascript">
+        $(document).ready(function(){
+          // alert('working');
+          $('.hide').click(function(){
+            $('.hide-p').hide();
+            });
+          $('.show').click(function(){
+            $('.hide-p').show();
+          });
+          $('.toggle').click(function(){
+            $('.toggle-slide').toggle();
+          });
+          $('.slide-up').click(function(){
+            $('.toggle-slide').slideUp();
+          });
+          $('.slide-down').click(function(){
+            $('.toggle-slide').slideDown();
+          });
+          $('.slide-toggle').click(function(){
+            $('.toggle-slide').slideToggle();
+          });
+          $('.fade-out').click(function(){
+            $('#f-text').fadeOut();
+          });
+          $('.fade-in').click(function(){
+            $('#f-text').fadeIn();
+          });
+          $('.add-class').click(function(){
+            $('.class-title').addClass('.more-text');
+          });
+          $('.before').click(function(){
+            $('.BAA').before('This is awesome!');
+          });
+          $('.after').click(function(){
+            $('.BAA').after('After it decides to work...');
+          });
+          $('.append').click(function(){
+            $('.BAA').append('Yay, I can catch up on my zZzz now!');
+          });
+          $('.html').click(function(){
+            $('.too-many').html('jQuery rocks!');
+          });
+          $('.atr').click(function(){
+            $('.too-many').attr('This is awesome!');
+          });
+              // .val mostly used with html
+          $('.val').click(function(){
+            $('input:text').val('unicorn');
+          });
+          $('.txt').click(function(){
+            $('.too-many').text('This is awesome!');
+          });
+        });
+      </script>
+
+    </head>
+    <body>
+        <div class="wrapper">
+            <h1>My jQuery Functions Assignment</h1>
+            <div class="click">
+                <div id="click-me">
+                    <button class="hide">Hide</button>
+                    <button class="show">Show</button>
+                </div>
+                <div class="content">
+                    <h2>CLICK</h2>
+                    <p class="hide-p">This demonstrates click, hide, and show.</p>
+                </div>
+            </div>
+            <div class="divs">
+                <div id="click-me">
+                    <button class="toggle">Toggle</button>
+                    <button class="slide-up">Slide Up</button>
+                    <button class="slide-down">Slide Down</button>
+                    <button class="slide-toggle">Slide Toggle</button>
+                </div>
+                <div class="content">
+                    <h2>TOGGLES</h2>
+                    <p class='toggle-slide'>This demonstrates toggles and slides.</p>
+                </div>
+            </div>
+            <div class="divs">
+                <div id="click-me">
+                    <button class="fade-out">Fade Out</button>
+                    <button class="fade-in">Fade In</button>
+                </div>
+                <div class="content">
+                    <h2>FADES</h2>
+                    <p id='f-text'>This demonstrates fades.</p>
+                </div>
+            </div>
+            <div class="divs">
+                <div class="click-me">
+                    <button class="add-class">Add Class</button>
+                </div>
+                <div class="add-content">
+                    <h2 class='class-title'>ADD CLASS</h2>
+                    <p class='more-text'>This demonstrates what happens when you add a class to matched elements.</p>
+                </div>
+            </div>
+            <div class="divs">
+                <div id="click-me">
+                    <button class="before">Before</button>
+                    <button class="after">After</button>
+                    <button class="append">Append</button>
+                </div>
+                <div class="content">
+                    <h2>BEFORE AFTER AND APPEND</h2>
+                    <P class='BAA'>This demonstrates the before, after, and append functions.</P>
+                </div>
+            </div>
+            <div class="divs">
+                <div class="click-me">
+                    <button class="html">HTML</button>
+                    <button class="atr">Attribute</button>
+                    <button class="val">Value</button>
+                    <button class="txt">Text</button>
+                </div>
+                <div class="content">
+                    <h2>GET</h2>
+                    <p class="too-many">This demonstrates how to get various elements.</p>
+                </div>
+            </div>
+            <div class="divs">
+                <div id="click-me">
+                    <button class="data">Data</button>
+                </div>
+                <div class="content">
+                    <h2>DATA</h2>
+                    <p>This demonstrates how to store data.</p>
+                </div>
+            </div>
+            <div class="footer">
+                <h3>SLIDE SLIDE SLIDE SLIDE SLIDE SLIDE</h3>
+            </div>
+        </div>
+    </body>
+</html>

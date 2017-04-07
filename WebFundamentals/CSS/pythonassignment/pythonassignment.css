@@ -1,0 +1,115 @@
+*{
+  margin: 0px;
+  padding: 0px;
+  outline: 1px dashed red;
+}
+#container{
+  background-color: #174f78;
+}
+#wrapper{
+  width: 1000px;
+  height: auto;
+}
+#header{
+  font: white;
+  display: flex;
+  justify-content: space-between;
+}
+
+span{
+  color: yellow;
+}
+
+span2{
+  color:#83b5de
+}
+
+#intro-content{
+  color: white;
+  display: flex;
+  justify-content: space-between;
+}
+#bio{
+  width: 650px;
+  padding: 20px;
+  text-align: center;
+}
+
+input{
+  margin-left: 40px;
+  height: 22px;
+  text-align: center;
+  background-color: white;
+}
+.right-corner{
+  margin-right: 10px;
+  margin-top: 50px;
+  width: 250px;
+  display: inline-block;
+}
+
+.text-size{
+  margin-left: 70px;
+  color: white;
+
+}
+
+.search-bar{
+  padding: 15px 10px;
+  background-color: grey;
+  border-radius: 10px;
+}
+
+button{
+  height: 25px;
+  width: 30px;
+  margin-left: 3px;
+  background-color: #174f78;
+  color: white;
+  border-radius: 5px;
+}
+
+#head-nav-bar{
+  color: white;
+  font-size: 20px;
+  width: 900px;
+  margin: 10px 25px;
+  padding: 10px 30px;
+  background-color: #2171a7;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+
+}
+
+#side-nav-bar{
+  padding: 20px;
+  text-decoration: underline;
+  text-align: center;
+  margin-left: 40px;
+
+}
+
+#body-content{
+  text-align: center;
+  background-color: white;
+  display: flex;
+  list-style-position: inside;
+}
+
+#footer{
+  padding: 10px;
+  color: #82c0ea;
+  text-align: center;
+  background: linear-gradient(#2171a7, #174f78);
+}
+h3{
+  margin: 15px;
+  color: #82c0ea;
+  display: flex;
+  justify-content: space-around;
+}
+
+.copyright{
+  font-size: 15px;
+}

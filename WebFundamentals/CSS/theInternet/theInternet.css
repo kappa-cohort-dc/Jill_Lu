@@ -1,0 +1,72 @@
+*{
+  padding: 0px
+  margin: 0px;
+  outline: 1px dashed red;
+}
+
+#wrapper{
+  width:1000px;
+  height: auto;
+}
+
+#header{
+ display:inline-flex;
+}
+
+.net{
+  color: blue;
+}
+
+h1{
+  font-size: 40px;
+  position: relative;
+  top: 30px;
+}
+
+h2{
+  padding-top: 10px;
+  padding-left: 10px;
+  height: 40px;
+  color: white;
+  background: radial-gradient(#2171a7, #174f78);
+}
+.globe{
+  position: relative;
+  top: 18px;
+  height:100px;
+  width: 100px;
+}
+
+img.phone{
+  height: 30px;
+}
+
+.house{
+  display: inline-flex;
+  height: 25px;
+}
+span{
+  color: #00c2e3;
+}
+
+#side-content{
+  width:200px;
+}
+
+.button1{
+  background-color: blue;
+}
+.button2{
+  background-color: orange;
+}
+button{
+  margin-left: 20px;
+  color:white;
+  width:150px;
+  border-radius: 5px;
+}
+
+.ninja{
+  width: 100px;
+  height: 150px;
+}

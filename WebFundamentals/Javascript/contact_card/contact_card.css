@@ -1,0 +1,36 @@
+*{
+  margin: 0px;
+  padding: 0px;
+}
+
+#wrapper{
+  width: 1000px;
+  height: auto;
+  padding: 15px;
+}
+
+#left-side{
+  width: 400px;
+  display: inline-block;
+
+}
+
+#right-side{
+  width: 400px;
+  display: inline-block;
+}
+
+.description{
+  height: 50px;
+}
+.boxes{
+  border: 2px;
+  border-color: black;
+  border-style: solid;
+  width: 250px;
+  height: auto;
+  padding: 10px 0px;
+  margin-bottom: 5px;
+  text-align: center;
+
+}

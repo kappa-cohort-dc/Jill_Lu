@@ -1,0 +1,22 @@
+*{
+  margin: 0px;
+  padding: 0px;
+}
+
+#wrapper{
+  width: 1000px;
+  padding: 15px;
+}
+
+#header{
+  border: 5px;
+  border-bottom: black;
+}
+
+input{
+  margin-bottom: 10px;
+}
+
+.button{
+  margin-top: 10px;
+}

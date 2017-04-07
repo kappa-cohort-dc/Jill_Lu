@@ -1,0 +1,114 @@
+*{
+  margin: auto;
+}
+
+#wrapper{
+  width: 1000px;
+  height: auto;
+}
+
+#header{
+  width: 940px;
+  margin-left: 20px;
+  padding: 10px;
+  background-color: #f5f5f5;
+  display:inline-flex;
+  justify-content: space-between;
+}
+
+h1{
+  margin-left: 0px;
+}
+
+h3{
+  margin-right: 0px;
+}
+
+div.bio{
+  margin-left: : 10px;
+  width: 420px;
+  height: 269px;
+}
+.profile-pic{
+  width: 400px;
+  border-style: solid;
+  border-color: #c0c0c0;
+}
+.bio{
+  heigh: 263px;
+  width: 400px;
+  display: inline-block;
+  background-color: white;
+  vertical-align: top;
+
+}
+
+p.bio{
+  margin-bottom: 10px;
+  padding: 10px;
+}
+
+.sub-header{
+  padding: 8px;
+  font-style: bold;
+  color: white;
+  background: linear-gradient(white, grey);
+}
+
+#main-body{
+  /*padding: 25px;*/
+  padding-left: 60px;
+  padding-top: 20px;
+  background: radial-gradient(#6f5964, #28171c);
+  margin: auto 20px;
+}
+.continue{
+  padding: 10px;
+}
+#little-boxes{
+  width: 257px;
+  margin:11px;
+  background-color: white;
+  display: inline-block;
+}
+.project-text{
+  height: 190px;
+  padding: 10px;
+}
+.tech-icons{
+  height: 30px;
+  width: 30px;
+  margin: 5px;
+}
+.project-pic{
+  width: 250px;
+}
+
+.buttons{
+  margin-left: 90px;
+  margin-bottom: 20px;
+  padding: 3px;
+  background-color: #407d61;
+  color: white;
+  border-radius: 5px;
+  text-align: center;
+}
+
+input.buttons{
+  display: center;
+}
+
+#footer{
+  width: 960px;
+  margin-left: 20px;
+  background-color:#f5f5f5;
+  text-align: center;
+}
+.contact-info{
+  padding: 10px 0px;
+}
+
+.icons{
+  width: 15px;
+  height: 15px;
+}
