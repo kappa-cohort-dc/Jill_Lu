@@ -1,0 +1,32 @@
+<html>
+<body>
+  {% with messages = get_flashed_messages() %}
+    {% if messages %}
+      {% for message in messages %}
+        <p style ='color:red;'> {{message}}</p>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+  <fieldset>
+    <legend>Register</legend>
+    <form action= '/register' method ='POST'>
+      <input type='text' name='first_name' placeholder = 'First Name'>
+      <input type='text' name='last_name' placeholder = 'Last Name' >
+      <input type='text' name='email' placeholder = 'Email'>
+      <input type='password' name='password' placeholder ='Password'>
+      <input type='password' name='confirm_password' placeholder = 'Confirm Password'>
+      <input type='submit' name ='submit'>
+    </form>
+
+  </fieldset>
+  <fieldset>
+    <legend>Login</legend>
+    <form action= '/login' method ='POST'>
+      <input type='text' name='email'>
+      <input type='text' name='password'>
+      <input type='submit' name='submit'>
+    </form>
+
+  </fieldset>
+</body>
+</html>

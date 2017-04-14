@@ -1,0 +1,30 @@
+<html>
+<head>
+  <title>Friends</title>
+</head>
+<body>
+  <h1>Friends:</h1>
+  <table>
+  {% for friend in all_friends: %}
+  <p>First Name: {{ friend['first_name'] }}</p>
+  <p>Last Name: {{ friend['last_name'] }}</p>
+  <p>Age: {{ friend['age'] }}</p>
+  <p>Friend Since: {{ friend['friends_since'] }}</p>
+  <hr>
+  {% endfor %}
+  <table>
+
+  <h2>Add a Friend</h2>
+  <form action='/friends' method ='POST'>
+    First Name: <input type='text' name= 'first_name' id= 'first_name'>
+    <br>
+    Last Name: <input type ='text' name= 'last_name' id='last_name'>
+    <br>
+    Age: <input type ='text' name= 'age' id='age'>
+    <br>
+    Friends Since: <input type ='text' name= 'friends_since' id='friends_since'>
+    <br>
+    <input type='submit' value ='Add'>
+  </form>
+</body>
+</html>

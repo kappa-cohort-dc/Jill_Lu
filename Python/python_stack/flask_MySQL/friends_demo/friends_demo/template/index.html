@@ -1,0 +1,19 @@
+<html>
+<head>
+    <title> Friends</title>
+</head>
+<body>
+  {{all_friends}}
+  <h1>Friends</h1>
+  {%for friend in all_friends: %}
+    <p>ID: {{ friend['id'] }}</p>
+    <p>First Name: {{ friend['first_name'] }}</p>
+    <p>Last Name: {{ friend['last_name'] }} </p>
+    <p>Occupation: {{ friend['occupation'] }} </p>
+    <hr>
+    <h1>Add a Friend:</h1>
+    <p>Name: {{ friend['first_name']}} </p>
+    <p>Age: {{ friends['age']}} </p>
+  {% endfor %}
+</body>
+</html>

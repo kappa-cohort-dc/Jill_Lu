@@ -1,0 +1,25 @@
+<html>
+<body>
+  <h1> Coding Dojo Wall {{session['logged_name']}}
+    <a href='/log_out'> log out </a>
+  </h1>
+  <h2> Post a Message</h2>
+  <form action= '/message' method='POST'>
+    <textarea name='message' cols='100' rows='4'></textarea>
+    <input type='submit' name =''>
+  </form>
+  {% for message in messages %}
+    <p>{{message.messages}} - posted by: {{message.first_name}} {{message.last_name}}</p>
+    <p>{{message.created_at}}</p>
+    {% for comment in comments %}
+      <p>{% if comment["message_id"] == message["id"] %}
+             {{comment.comments}}
+         {% endif %}- posted by: {{comment.first_name}} {{comment.last_name}}</p>
+    {% endfor %}
+    <form action='/messages/{{message.id}}/comments' name='comment' method ='post'>
+      <textarea name ='comment'></textarea>
+      <input type='submit' name='comment'>
+    </form>
+  {% endfor %}
+</body>
+</html>
