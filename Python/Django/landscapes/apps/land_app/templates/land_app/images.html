@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <h2> Your random picture of the day: </h2>
+    {% load staticfiles %}
+
+    {% if num > 0 and num < 11 %}
+      <img src = '{% static 'img/land_app/snow.jpg' %}'>
+      {% endif %}
+
+    {% if num > 10 and num < 21 %}
+      <img src = '{% static 'img/land_app/desert.jpg' %}'>
+      {% endif %}
+
+    {% if num > 20 and num < 31 %}
+    <img src = '{% static 'img/land_app/forest.jpg' %}'>
+    {% endif %}
+
+    {% if num > 30 and num < 41 %}
+    <img src = '{% static 'img/land_app/vineyard.jpg' %}'>
+    {% endif %}
+
+    {% if num > 40 and num < 51 %}
+    <img src = '{% static 'img/land_app/tropical.jpg' %}'>
+    {% endif %}
+
+    {% if num > 50 %}
+    <h1> I said 1-50!</h1>
+    <img src = '{% static 'img/land_app/angrycat.jpg' %}'>
+    {% endif %}
+
+  </body>
+</html>

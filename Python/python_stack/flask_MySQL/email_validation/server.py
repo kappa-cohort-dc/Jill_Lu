@@ -7,4 +7,3 @@ def index():
     return render_template('index.html')
 @app.route('/success', methods =['POST'])
 def success():
-    query = 'SELECT * FROM emails where email'

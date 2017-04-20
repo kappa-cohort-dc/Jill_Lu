@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Username Validation</title>
+  </head>
+  <body>
+    <h2> The username you entered {{request.session.username}} is valid. Thank you!</h2>
+    <label> Usernames entered:</label>
+        <table>
+            <tr>
+                <td>{{users.username}}{{users.created_at}}</td>
+            </tr>
+        </table>
+  </body>
+</html>

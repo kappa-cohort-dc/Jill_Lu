@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Ninja Turtles</title>
+
+  </head>
+  <body>
+    {% load staticfiles %}
+    {% if team == True %}
+      <img src ='{% static 'ninjas/img/tmnt.png' %}'>
+
+      {% elif color == 'blue' %}
+        <img src ='{% static 'ninjas/img/leonardo.jpg' %}'>
+      {% elif color == 'red' %}
+        <img src ='{% static 'ninjas/img/raphael.jpg' %}'>
+      {% elif color == 'purple' %}
+        <img src ='{% static 'ninjas/img/dontatello.jpg' %}'>
+      {% elif color == 'orange' %}
+        <img src ='{% static 'ninjas/img/michelangelo.jpg' %}'>
+      {% else %}
+      <img src ='{% static 'ninjas/img/notapril.jpg' %}'>
+      {% endif %}
+
+  </body>
+</html>
