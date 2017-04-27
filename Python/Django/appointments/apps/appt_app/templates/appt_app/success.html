@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Your Appointment</title>
+  </head>
+  <body>
+    <h1> Your appointment has been scheduled!</h1>
+    {% for item in appointment %}
+    <p> Your appointment is {{item.appt_time}} {{item.appt_date}}</p>
+    {% endfor %}
+    <form action='{% url "appt_app:index" %}' method='post'>
+      {% csrf_token %}
+    <input type='submit' value='Make another appointment'>
+  </form>
+  </body>
+</html>

@@ -12,7 +12,7 @@
     <label>Description:</label>
     <p>{{ courses.description }}</p>
 
-    <form action='/confirmation/{{courses.id}}' method ='post'>
+    <form action='/' method ='post'>
       {% csrf_token %}
     <input type='submit' value='No'>
   </form>

@@ -1,21 +1,17 @@
 from django.shortcuts import render, HttpResponse
 import random
 
-VALUES = ['pandas', 'kittens', 'puppies', 'tigers', 'lions', 'horses', 'gorillas', 'bears', 'monkeys']
+VALUES = ['pandas', 'kittens', 'puppies', 'tigers', 'lions', 'horses', 'gorillas', 'bears', 'monkeys', 'elephants']
 # Create your views here.
 def index(request):
     return render(request, 'surpriseMe/index.html')
 
 def results(request):
-    number = request.POST['number']
+    animal = request.POST['number']
     random.shuffle(VALUES)
+    request.session['output'] = []
 
-    output = []
+    for num in range(0, int(animal)):
+        request.session['output'].append(VALUES[num])
 
-    for animal in range(0, int(number)):
-        output.append(VALUES[animal])
-    context = {
-        'values' : output,
-        'number' : number
-    }
-    return render(request, 'land_app/results.html', context)
+    return render(request, 'surpriseMe/results.html')

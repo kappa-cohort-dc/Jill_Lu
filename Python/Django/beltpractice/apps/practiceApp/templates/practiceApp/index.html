@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Books Home</title>
+  </head>
+  <body>
+    <h1> Welcome, {{request.session.}}!</h1>
+    <a href= '{% url "practiceApp:addBook" %}'> Add Book and Review</a>
+    <a href= '{% url "log_reg:logout" %}'> Logout</a>
+
+    <h3> Recent Book Reviews:</h3>
+      {% for item in book %}
+        {% for blurb in review %}
+          {% for ppl in reviewer %}
+            {% if item.id == blurb.book_id %}
+              {% if ppl.id == blurb.user_id %}
+                <a href = '{% url "practiceApp:showReview" id=item.id %}'><p>{{item.title}}</p></a>
+                <p>{{blurb.rating}}</p>
+                <a href ='{% url "practiceApp:reviewer" id=ppl.id %}'><p>{{ppl.first_name}}</a> says: {{blurb.content}}</p>
+                <p> {{blurb.created_at}}</p>
+                {% endif %}
+              {% endif %}
+            {% endfor %}
+        {% endfor %}
+      {% endfor %}
+  <fieldset>
+    <legend> <h3>Other Books with Reviews: </h3></legend>
+      {% for item in book %}
+        <p>{{item.title}}</p>
+        {% endfor %}
+    </fieldset>
+
+  </body>
+</html>

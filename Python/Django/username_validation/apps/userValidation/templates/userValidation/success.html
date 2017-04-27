@@ -5,12 +5,14 @@
     <title>Username Validation</title>
   </head>
   <body>
-    <h2> The username you entered {{request.session.username}} is valid. Thank you!</h2>
+    <h2> The username you entered {{ current.username }} is valid. Thank you!</h2>
     <label> Usernames entered:</label>
+    {% for user in user %}
         <table>
             <tr>
-                <td>{{users.username}}{{users.created_at}}</td>
+                <td>{{user.username}}{{user.created_at}}</td>
             </tr>
         </table>
+        {% endfor %}
   </body>
 </html>

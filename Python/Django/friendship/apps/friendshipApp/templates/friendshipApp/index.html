@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <h1> Friendships</h1>
+
+    <h3>Imaginary Friendship</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Friend 1</th>
+          <th>Friend 2</th>
+        </tr>
+      </thead>
+      <tbody>
+      {% for friend in friends %}
+            <tr>
+                <td> {{friend.user.name}}</td>
+                <td> {{friend.friend.name}} </td>
+            </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+
+    <h3> Create Friend </h3>
+    <form action= '{% url "friendshipApp:process" %}' method='post'>
+      {% csrf_token %}
+      <p>Name:</p><input type='text' name='name'>
+      <input type='submit' name='register' value='Create Friend'>
+    </form>
+
+    <h3> Join Friends </h3>
+    <form action='{% url "friendshipApp:friend" %}' method='post'>
+      {% csrf_token %}
+      <select name='friend1'>
+        {% for ppl in user %}
+        <option value='{{ppl.id}}'>{{ppl.name}}</option>
+      {% endfor %}
+    </select>
+
+    <select name='friend2'>
+        {% for ppl in user %}
+        <option value='{{ppl.id}}'>{{ppl.name}}</option>
+
+        {% endfor %}
+    </select>
+
+    <input type = 'submit' value = 'Friend Me'>
+  </form>
+  </body>
+</html>

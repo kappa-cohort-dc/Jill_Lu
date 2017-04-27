@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Add Book and Review </title>
+  </head>
+  <body>
+    <h2> Add a New Book Title and a Review </h2>
+
+    <form action='{% url 'beltReview:create' %}' method= 'post'>
+      {% csrf_token %}
+      <p> Book Title: <input type='text' name='title'></p>
+      <p>Choose from the list of Authors:</p>
+        <select name = 'author'>
+          <option value= 'Dr. Seuss'>Dr. Seuss</option>
+          <option value = 'JK Rowling'>JK Rowling</option>
+          <option value= 'Roald Dahl'>Roald Dahl</option>
+          <option value= 'George R R Martin'>George R R Martin</option>
+        </select>
+      <p>Or add a new author: <input type='text' name='author'></p>
+
+      <p>Review:</p>
+      <textarea name='content'></textarea>
+
+      <p>Rating:</p>
+        <select name='rating'>
+          <option> 1 </option>
+          <option> 2 </option>
+          <option> 3 </option>
+          <option> 4 </option>
+          <option> 5 </option>
+        </select>
+      <input type='submit' value='Add Book and Review'>
+    </form>
+
+
+  </body>
+</html>

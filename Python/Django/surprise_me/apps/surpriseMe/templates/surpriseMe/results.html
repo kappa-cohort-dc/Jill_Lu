@@ -8,8 +8,8 @@
     <h1> Surprises: </h1>
 
     <fieldset>
-    {% for animal in values %}
-      <p>{{ animal }}</p>
+    {% for item in request.session.output %}
+      <p>{{ item }}</p>
     {% endfor %}
     </fieldset>
 

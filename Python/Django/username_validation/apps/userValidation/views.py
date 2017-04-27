@@ -1,4 +1,4 @@
-from django.shortcuts import render, HttpResponse, redirect
+from django.shortcuts import render, redirect
 from .models import Users
 # Create your views here.
 def index(request):
@@ -7,16 +7,18 @@ def index(request):
 
 def process(request):
     infoEntered = Users.objects.login(request.POST['username'])
+
     if infoEntered == True:
-        Users.objects.create(username =request.POST['username'])
+        Users.objects.create(username = request.POST['username'])
+        request.session['username']= request.POST['username']
         return redirect('/success')
-    else:
+    elif 'error'in infoEntered:
         request.session['error'] = infoEntered['error']
         return redirect('/')
 
 def success(request):
-    context = {
-        'username' : Users.objects.all()
-    }
+    context = {'user' : Users.objects.all()}
+    last = len(context['user'])-1
+    context['current'] = context['user'][last]
     request.session.clear()
     return render(request, 'userValidation/success.html', context)

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>User Reviews</title>
+  </head>
+  <body>
+
+    <p>First Name: {{reviewer.first_name}}</p>
+    <p>Email: {{reviewer.email}} </p>
+    <p> Total Review: {{blurb}}</p>
+
+    <h3>Posted Reviews on the following books:</h3>
+      {% for item in book %}
+        {% for x in all_blurb %}
+          {% if x.book_id == item.id %}
+          <p><a href='{% url "practiceApp:showReview" id=item.id %}'>
+            {{item.title}}</a></p>
+            {% endif %}
+         {% endfor %}
+        {% endfor %}
+  </body>
+</html>

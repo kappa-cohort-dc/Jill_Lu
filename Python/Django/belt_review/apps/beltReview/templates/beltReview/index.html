@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title> Welcome </title>
+  </head>
+  <body>
+    <h1> Welcome! </h1>
+
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+      <li{% if message.tags %} {{message.tags}} {% endif %}> {{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+<fieldset>
+  <legend> Register</legend>
+    <form action='/register' method = 'post'>
+      {% csrf_token %}
+      <p> Name:<input type= 'text' name='name'></p>
+
+      <p> Alias:<input type='text' name='alias'></p>
+
+      <p> Email:<input type='text' name='email'></p>
+
+      <p> Password:<input type='password' name='password'></p>
+      <p>*Password should be at least 8 characters</p>
+
+      <p> Confirm Password:<input type= 'password' name='confirm_password'></p>
+
+      <input type='submit' value='Register'>
+    </form>
+</fieldset>
+
+<fieldset>
+  <legend> Login </legend>
+  <form action='/login' method='post'>
+    {% csrf_token %}
+    <p> Email:<input type='text' name='email'> </p>
+    <p> Password:<input type='password' name='password'></p>
+    <input type='submit' value='Login'>
+  </form>
+</fieldset>
+  </body>
+</html>

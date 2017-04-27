@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>User Reviews</title>
+  </head>
+  <body>
+    <a href= '{% url "beltReview:books" %}'> Home</a>
+    <a href= '{% url "beltReview:addBooks" %}'> Add Book and Review</a>
+    <a href= '{% url "beltReview:logout" %}'> Logout</a>
+
+    <p> Alias: {{reviewer.alias}} </p>
+    <p> Name: {{reviewer.name}} </p>
+    <p> Email: {{reviewer.email}} </p>
+    <p> Total Reviews: {{reviews}} </p>
+
+    <p>Posted Reviews on the following books:</p>
+      {% for book in books %}
+        {% for review in allReviews %}
+          {% if review.book_id == book.id %}
+            <p><a href= '{% url "beltReview:reviewBooks" id=book.id %}'>{{book.title}}</a></p>
+          {% endif %}
+        {% endfor %}
+      {% endfor %}
+
+  </body>
+</html>

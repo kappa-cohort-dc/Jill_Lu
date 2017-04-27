@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Add Book and Review</title>
+  </head>
+  <body>
+    <a href = '{% url "practiceApp:booksHome" %}'> Home </a>
+    <h4>{{ book.title }}</h4>
+    <p> Author:{{book.author}}</p>
+
+    <h4> Reviews:</h4>
+    {% for item in review %}
+      {% for ppl in reviewer %}
+        {% if ppl.id == item.user_id %}
+        {{ppl.first_name}} Says: {{ item.content }}
+        <p> Rating: {{ item.rating }}</p>
+        {% endif %}
+      {% endfor %}
+     {% endfor %}
+  </body>
+</html>

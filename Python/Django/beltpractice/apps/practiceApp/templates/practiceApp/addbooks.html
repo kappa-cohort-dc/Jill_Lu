@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Add Book and Review</title>
+  </head>
+  <body>
+    <a href= '{% url "practiceApp:booksHome" %}'> Home </a>
+    <a href= '{% url "log_reg:logout" %}'> Logout </a>
+    <h2> Add a New Book Title and a Review:</h2>
+    <form action='{% url "practiceApp:addBookProcess" %}' method= 'post'>
+      {% csrf_token %}
+      <p> Title: <input type='text' name ='title'></p>
+      <p>Author:</p>
+      <select name='author'>
+        <option> Author 1</option>
+        <option> Author 2</option>
+        <option> Author 3</option>
+      </select>
+      <p> or add a new author: <input type='text' name ='author'></p>
+      <p>Review: </p>
+      <textarea name='content'></textarea>
+      <p>Rating:</p>
+      <select name='rating'>
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+      </select>
+      <br>
+      <input type='submit' value='Add Book and Review'>
+    </form>
+
+  </body>
+</html>
