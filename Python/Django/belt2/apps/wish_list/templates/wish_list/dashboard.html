@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>My Wish List</title>
+  </head>
+  <body>
+    <h1> Hello, {{user.name}}!</h1>
+    <a href='{% url "log_reg:logout" %}'>Log Out</a>
+    <h3>Your Wish List:</h3>
+    <table>
+      <tr>
+        <th>Item</th>
+        <th>Added by</th>
+        <th>Date Added</th>
+        <th>Action</th>
+      </tr>
+      <tr> Placeholder= item 1 LINK ITEM</tr>
+      <tr> person who added it</tr>
+      <tr> date added </tr>
+      <tr> Link remove from list </tr>
+      <tr> link to delete from db</tr>
+    </table>
+
+    <h3>Other User's Wish List</h3>
+    <table>
+      <tr>
+        <th>Item</th>
+        <th>Added by</th>
+        <th>Date Added</th>
+        <th>Action</th>
+      </tr>
+    </table>
+  </body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>My Clients</title>
+  </head>
+  <body>
+    <h1> Add Client </h1>
+    <form action= '{% url "clientApp:process" %}' method='post'>
+      {% csrf_token %}
+    <p>Business Name: <input type='text' name='business_name'></p>
+    <p>Email: <input type='text' name='email'></p>
+    <p>Phone: <input type='text' name='phone'></p>
+    <p>Notes: </p>
+
+    <textarea name='notes'></textarea>
+
+    <input type='submit' value='Add'>
+    </form>
+
+    <form action='{% url "clientApp:index" %}' method='post'>
+      {% csrf_token %}
+      <input type='submit' value='Cancel'>
+    </form>
+  </body>
+</html>

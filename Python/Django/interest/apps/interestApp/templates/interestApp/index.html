@@ -5,7 +5,8 @@
     <title>User Interests</title>
   </head>
   <body>
-    <form action='/' method = 'post'>
+    <form action='{% url "interestApp:additem" %}' method ='post'>
+      {% csrf_token %}
       <p> Name: <input type ='text' name='name'></p>
       <p> Interest: <input type='text' name ='interest'></p>
       <input type='submit' value='Submit'>

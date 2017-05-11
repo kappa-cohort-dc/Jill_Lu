@@ -19,4 +19,5 @@ from django.contrib import admin
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^', include('apps.log_reg.urls', namespace='log_reg')),
+    url(r'^quotes/', include('apps.quotes.urls', namespace='quotes')),
 ]

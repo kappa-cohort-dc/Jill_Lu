@@ -10,9 +10,9 @@ def index(request):
 def register(request):
     result = Users.objects.register(request.POST)
     if result[0] is False:
-        print '#' * 50
-        request.session['log_user'] = request.POST['first_name']
-        return redirect(reverse ('log_reg:success'))
+        request.session['log_user'] = result[1].id
+        # request.session['log_user'] = users.id
+        return redirect(reverse ('quotes:index'))
 
     else:
         for err in result[1]:
@@ -24,8 +24,8 @@ def login(request):
     result = Users.objects.login(request.POST)
     if result is False:
         user = Users.objects.get(email = request.POST['email'])
-        request.session['log_user'] = user.first_name
-        return redirect('/success')
+        request.session['log_user'] = user.id
+        return redirect(reverse ('quotes:index'))
     else:
         for errors in result:
             messages.error(request, errors)

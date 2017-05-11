@@ -1,0 +1,21 @@
+# puts 'I am in the human file'
+# require_relative 'mammal'
+class Human
+  attr_accessor :strength, :intelligence, :health, :stealth
+  def initialize
+    @strength = 3
+    @intelligence= 3
+    @stealth = 3
+    @health = 100
+  end
+  def attack(obj)
+    #check if the attacked objects class is Human or inherits from Human
+    if obj.class.ancestors.include?(Human)
+      obj.health -= 10
+      true
+    else
+      false
+    end
+
+  end
+end

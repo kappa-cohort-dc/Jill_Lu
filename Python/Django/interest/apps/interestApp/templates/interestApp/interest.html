@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Interests</title>
+  </head>
+  <body>
+    <h1> {{user.username}}'s Interests </h1>
+    <fieldset>
+      {% for x in user_interest %}
+      <p>{{x.interest.interest}}</p>
+<!-- traverse from userinterest table 'interest' to interest table -->
+      {% endfor %}
+    </fieldset>
+<p><a href= '{% url "interestApp:dashboard" %}'>back to users</a></p>
+<p> <a href='{% url "interestApp:index" %}'> enter another user interest</a></p>
+  </body>
+</html>

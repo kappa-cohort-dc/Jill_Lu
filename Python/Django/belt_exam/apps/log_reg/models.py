@@ -6,34 +6,40 @@ EMAIL_REGEX = re.compile(r'^[a-zA-Z0-9.+_-]+@[a-zA-Z0-9._-]+\.[a-zA-Z]+$')
 
 class UsersManager(models.Manager):
     def register(self, postData):
-        first_name = postData['first_name']
-        last_name = postData['last_name']
-        user_email = postData['email']
+        name = postData['name']
+        alias = postData['alias']
+        email = postData['email']
+        dob = postData['dob']
         password = postData['password']
         confirm_password = postData['confirm_password']
 
         flag = False
         errors = []
 
-        if len(first_name)< 2:
+        if len(name)< 2:
             flag = True
-            errors.append('First name must be at least 2 characters')
-        if not first_name.isalpha():
+            errors.append('Name must be at least 2 characters')
+        if not name.isalpha():
             flag = True
-            errors.append('First name can only contain letters')
+            errors.append('Name can only contain letters')
 
-        if len(last_name)< 2:
+        if len(alias)< 2:
             flag = True
-            errors.append('Last name must be at least 2 characters')
+            errors.append('Alias must be at least 2 characters')
 
-        if not last_name.isalpha():
+        if not alias.isalpha():
             flag = True
-            errors.append('Last name can only contain letters')
+            errors.append('Alias can only contain letters')
 
-        if not user_email:
+        if not dob:
+            flag = True
+            errors.append('Date of Birth cannot be blank')
+
+        if not email:
             flag= True
             errors.append('Email field cannot be blank')
-        if not EMAIL_REGEX.match(user_email):
+
+        if not EMAIL_REGEX.match(email):
             flag = True
             errors.append('Email format is invalid')
 
@@ -49,15 +55,13 @@ class UsersManager(models.Manager):
             errors.append('Password confirmation must match password')
         if flag is False:
             # hashed = bcrypt.hashpw(password.encode(), bcrypt.gensalt())
-            user = Users.objects.create(first_name =first_name, last_name=last_name, email=user_email, password=password)
-            print "*" * 50
-            return (flag, errors)
+            user = Users.objects.create(name =name, alias=alias, email=email, dob= dob, password=password)
+            return (flag, user)
 
 
         else:
             return (flag, errors)
-            print Users.objects.all()
-            print "=+" * 50
+            # print Users.objects.all()
 
     def login(self, postData):
         flag= False
@@ -81,10 +85,11 @@ class UsersManager(models.Manager):
 
 
 class Users(models.Model):
-    first_name = models.CharField(max_length= 100)
-    last_name = models.CharField(max_length= 100)
+    name = models.CharField(max_length= 100)
+    alias = models.CharField(max_length= 100)
     email = models.CharField(max_length=100)
     password = models.CharField(max_length=100)
+    dob = models.DateTimeField(auto_now= False)
     created_at = models.DateTimeField(auto_now_add = True)
     updated_at = models.DateTimeField(auto_now = True)
     objects = UsersManager()
