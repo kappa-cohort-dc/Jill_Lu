@@ -1,0 +1,26 @@
+<h1> Listing Dojos</h1>
+<table>
+  <thead>
+  <tr>
+    <th>Coding Dojo Branch</th>
+    <th>Street Address</th>
+    <th>City</th>
+    <th>State</th>
+  </tr>
+  </thead>
+    <% @branch.each do |item| %>
+  <tbody>
+    <tr>
+      <td><%= item.branch %></td>
+      <td><%= item.address %></td>
+      <td><%= item.city %></td>
+      <td><%= item.state %></td>
+      <td>
+        <a href='show/<%=item.id%>'>show</a> |
+        <a href='edit/<%=item.id%>'>edit</a> |
+        <a href='delete/<%=item.id%>'data-method ='delete'> delete</a></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+<a href='/dojos/new'> New Dojo </a>

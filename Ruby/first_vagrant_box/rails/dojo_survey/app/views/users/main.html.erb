@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Survey Form</title>
+  </head>
+  <body>
+    <form action='/create' method='post'>
+      <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    Your Name:<input type='text' name='user[name]'>
+    <br>
+    Dojo Location:
+    <select name='user[location]'>
+      <option name='DC'> DC </option>
+      <option name='New York'> New York </option>
+      <option name='Seattle'> Seattle </option>
+      <option name='Dallas'> Dallas </option>
+    </select>
+    <br>
+    Favorite Language:
+    <select name='user[language]'>
+      <option name='JavaScript'>JavaScript</option>
+      <option name='Ruby'>Ruby</option>
+      <option name='Python'>Python</option>
+    </select>
+    <br>
+    Comment(Optional):
+    <br>
+    <textarea name='user[comment]'></textarea>
+    <br>
+    <input type='submit' value='Submit'>
+    </form>
+  </body>
+</html>
