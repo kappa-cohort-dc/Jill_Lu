@@ -2,11 +2,6 @@
   <legend> Sign Up </legend>
   <form action='/users/create' method='post'>
       <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-      <% if flash[:errors] %>
-        <% flash[:errors].each do |err| %>
-          <p id="errors"><%= err %></p>
-        <% end %>
-      <% end %>
       <p>Name:<input type='text' name='name' placeholder='name'></p>
       <p>Email:<input type='text' name='email' placeholder='email'></p>
       <p>Password:<input type='password' name='password' placeholder='password'></p>

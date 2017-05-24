@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_action :require_login, only:[:show, :edit, :delete, :update]
+
   def new
     render 'users/new_users'
   end
@@ -23,13 +25,9 @@ class UsersController < ApplicationController
   end
 
   def delete
-    @user= User.find(params[:id])
-    if @user.destroy
-      reset_session
-      redirect_to '/users/new'
-    else
-      redirect_to "/users/edit/#{@user.id}"
-    end
+    User.find(params[:id]).destroy
+    reset_session
+    redirect_to '/users/new'
   end
 
   def update
@@ -41,7 +39,7 @@ class UsersController < ApplicationController
       redirect_to :back
     end
   end
-  private
+private
   def user_params
     params.require(:user).permit(:name, :email, :password, :password_confirmation)
   end

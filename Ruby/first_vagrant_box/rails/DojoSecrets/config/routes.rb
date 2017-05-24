@@ -1,19 +1,26 @@
 Rails.application.routes.draw do
-
   root 'sessions#new'
+
+  post 'sessions/new' => 'sessions#create'
+  get 'sessions/logout' => 'sessions#logout'
   get 'users/new' => 'users#new'
   post 'users/create' => 'users#create'
-  get 'users/edit/:id' => 'users#edit'
-  patch 'users/:id' => 'users#update'
   get 'users/show/:id' => 'users#show'
+  get 'users/edit/:id' => 'users#edit'
+  patch 'users/update/:id' => 'users#update'
   delete 'users/delete/:id' => 'users#delete'
-  post 'sessions/new' => 'sessions#create'
-  delete 'sessions/logout' => 'sessions#logout'
+
 
 ####SECRETS ROUTES####
-  get 'secrets/index'
+  get 'secrets' => 'secrets#index'
+  post 'secrets/create' => 'secrets#create'
+  get 'secrets/:id/delete' => 'secrets#delete'
+  delete 'secrets/:id/delete' => 'secrets#delete'
 
-
+###Likes  Route###
+  get 'likes/:id' => 'likes#create'
+  get 'likes/:id/delete' => 'likes#destroy'
+  delete 'likes/:id' => 'likes#destroy'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
