@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :require_login, only:[:index, :show, :edit, :update]
   def index
   end
   def create
@@ -12,6 +13,8 @@ class UsersController < ApplicationController
     end
   end
   def show
+    @in_state = Event.where('state=?', current_user.state)
+    @out_of_state=Event.where.not('state=?', current_user.state)
     @user= User.find(params[:id])
     render 'users/index'
   end

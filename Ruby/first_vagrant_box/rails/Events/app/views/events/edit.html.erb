@@ -1,84 +1,9 @@
-<h2>Welcome, <%=current_user.first_name%>!</h2>
-<a href='/users/edit/<%=current_user.id%>'>Edit My Profile</a>
-
-<h4>Here are some of the events at your state: </h4>
-<table>
-  <thead>
-  <tr>
-    <th>Name</th>
-    <th>Date</th>
-    <th>Location</th>
-    <th>Host</th>
-    <th>Action/Status</th>
-  </tr>
-  </thead>
-  <tbody>
-  <% @in_state.each do |event| %>
-    <tr>
-    <td>
-      <a href='/events/<%=event.id%>'><%=event.name%></a></td>
-    <td><%=event.date%></td>
-    <td><%=event.location%></td>
-    <td><%=event.user.first_name%></td>
-    <% if current_user!=event.user %>
-      <% unless event.users.include?(current_user) %>
-        <td><a href='/events/<%=event.id%>/join'>Join</a></td>
-        <%else%>
-          <td><a href='/events/<%=Attendee.where(user_id: current_user.id, event_id: event.id).first.id%>/cancel'>Cancel</a></td>
-          <%end%>
-    <% else %>
-    <td><a href='/events/<%=event.id%>/edit'>Edit</a> || <a href='/events/<%=event.id%>/delete' data-method ='delete'>Delete</a></td>
-    </tr>
-    <%end%>
-    <%end%>
-  </tbody>
-</table>
-
-<h4>Here are some of the events in other states:</h4>
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Date</th>
-      <th>Location</th>
-      <th>State</th>
-      <th>Host</th>
-      <th>Action/Status</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @out_of_state.each do |event| %>
-    <tr>
-      <td>
-        <a href='/events/<%=event.id%>'>
-          <%= event.name %>
-        </a>
-      </td>
-      <td><%= event.date %></td>
-      <td><%= event.location %> </td>
-      <td><%= event.state %></td>
-      <td><%= event.user.first_name %></td>
-      <% if current_user!=event.user %>
-        <% unless event.users.include?(current_user) %>
-          <td><a href='/events/<%=event.id%>/join'>Join</a></td>
-          <%else%>
-            <td><a href='/events/<%=Attendee.where(user_id: current_user.id, event_id: event.id).first.id%>/cancel'>Cancel</a></td>
-            <%end%>
-        <% else %>
-        <td><a href='/events/<%=event.id%>/edit'>Edit</a> || <a href='/events/<%=event.id%>/delete' data-method ='delete'>Delete</a></td>
-        </tr>
-        <%end%>
-    </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<fieldset>
-<legend>Add Event </legend>
-<form action='/events/create' method='post'>
+<h2>Edit Event: <%=@event.name%></h2>
+<form action='/events/<%=@event.id%>/update' method='post'>
 <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-    <p>Name: <input type='text' name='name'></p>
-    <p>Date: <input type='date' name='date' id='datefield'>
+<input type= "hidden" name="_method" value="patch">
+    <p>Name: <input type='text' name='name' value='<%=@event.name%>'></p>
+    <p>Date: <input type='date' name='date' id='datefield' value='<%=@event.date%>'>
     <script>
           var today = new Date();
           var dd = today.getDate();
@@ -95,8 +20,9 @@
           document.getElementById("datefield").setAttribute("min", today);
       </script>
       </p>
-    <p>Location:<input type='text' name='location'>
-      State: <select name='state'>
+    <p>Location:<input type='text' name='location' value='<%=@event.location%>'>
+      State: <select name='state' value='<%=@event.state%>'>
+        <option selected value="<%= @event.state %>"><%= @event.state %></option>
         <option value="AL">Alabama</option>
         <option value="AK">Alaska</option>
         <option value="AZ">Arizona</option>
@@ -150,6 +76,5 @@
         <option value="WY">Wyoming</option>
       </select>
       </p>
-    <input type='submit' value='Add Event'>
+    <input type='submit' value='Edit Event'>
   </form>
-</fieldset>

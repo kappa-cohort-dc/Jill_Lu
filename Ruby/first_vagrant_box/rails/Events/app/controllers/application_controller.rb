@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
   end
   def require_login
     if(!session[:user_id])
-      redirect_to '/'
+      redirect_to root_path
     end
   end
   helper_method :current_user

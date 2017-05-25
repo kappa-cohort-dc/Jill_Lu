@@ -23,4 +23,23 @@ EMAIL_REGEX = /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]+)\z/i
 validates :name, :email, :password, :password_confirmation, presence: true
 validates :email, uniqueness: { case_sensitive: false }, format: { with: EMAIL_REGEX}
 
-#----------log user out -----------------------------#
+#----------application controller -----------------------------#
+def current_user
+  User.find(session[:user_id]) if session[:user_id]
+end
+def require_login
+  if(!session[:user_id])
+    redirect_to '/'
+  end
+end
+helper_method :current_user
+#-----------layout/application.html----------------------------------#
+<% if current_user %>
+<a href='/users/show/<%=current_user.id%>'>Home</a> || <a href='/sessions/logout'> Log Out </a>
+<% end %>
+
+<% if flash[:errors] %>
+  <% flash[:errors].each do |err| %>
+    <p id="errors"><%= err %></p>
+  <% end %>
+<% end %>

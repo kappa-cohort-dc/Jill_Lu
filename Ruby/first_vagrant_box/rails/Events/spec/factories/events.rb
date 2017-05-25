@@ -4,5 +4,6 @@ FactoryGirl.define do
     date "2017-05-24"
     location "MyString"
     state "MyString"
+    user nil
   end
 end
