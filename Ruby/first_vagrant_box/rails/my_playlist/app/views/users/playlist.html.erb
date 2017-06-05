@@ -1,0 +1,24 @@
+<h2> <%=@user.first_name%> <%=@user.last_name%>'s Playlist </h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Artist</th>
+      <th>Title</th>
+      <th> Times Added </th>
+    </tr>
+  </thead>
+  <tbody>
+     <% @playlist.all.each do |fave| %>
+     <tr>
+       <td> <%= fave.song.artist %></td>
+       <td> <a href='/songs/<%=fave.id%>'><%=fave.song.title%></a></td>
+       <td> <%=fave.count %></td>
+     </tr>
+     <%end%>
+  </tbody>
+</table>
+
+<br>
+
+<a href='/songs'>Back to Dashboard</a>

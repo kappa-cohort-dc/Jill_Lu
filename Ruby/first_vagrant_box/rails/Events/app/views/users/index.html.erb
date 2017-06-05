@@ -1,155 +1,156 @@
+<div align='right'>
+<a href='/users/edit/<%=current_user.id%>'>Edit My Profile</a></div>
 <h2>Welcome, <%=current_user.first_name%>!</h2>
-<a href='/users/edit/<%=current_user.id%>'>Edit My Profile</a>
 
 <h4>Here are some of the events at your state: </h4>
-<table>
-  <thead>
-  <tr>
-    <th>Name</th>
-    <th>Date</th>
-    <th>Location</th>
-    <th>Host</th>
-    <th>Action/Status</th>
-  </tr>
-  </thead>
-  <tbody>
-  <% @in_state.each do |event| %>
-    <tr>
-    <td>
-      <a href='/events/<%=event.id%>'><%=event.name%></a></td>
-    <td><%=event.date%></td>
-    <td><%=event.location%></td>
-    <td><%=event.user.first_name%></td>
-    <% if current_user!=event.user %>
-      <% unless event.users.include?(current_user) %>
-        <td><a href='/events/<%=event.id%>/join'>Join</a></td>
-        <%else%>
-          <td><a href='/events/<%=Attendee.where(user_id: current_user.id, event_id: event.id).first.id%>/cancel'>Cancel</a></td>
-          <%end%>
-    <% else %>
-    <td><a href='/events/<%=event.id%>/edit'>Edit</a> || <a href='/events/<%=event.id%>/delete' data-method ='delete'>Delete</a></td>
-    </tr>
-    <%end%>
-    <%end%>
-  </tbody>
-</table>
-
-<h4>Here are some of the events in other states:</h4>
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Date</th>
-      <th>Location</th>
-      <th>State</th>
-      <th>Host</th>
-      <th>Action/Status</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @out_of_state.each do |event| %>
-    <tr>
-      <td>
-        <a href='/events/<%=event.id%>'>
-          <%= event.name %>
-        </a>
-      </td>
-      <td><%= event.date %></td>
-      <td><%= event.location %> </td>
-      <td><%= event.state %></td>
-      <td><%= event.user.first_name %></td>
-      <% if current_user!=event.user %>
-        <% unless event.users.include?(current_user) %>
-          <td><a href='/events/<%=event.id%>/join'>Join</a></td>
-          <%else%>
-            <td><a href='/events/<%=Attendee.where(user_id: current_user.id, event_id: event.id).first.id%>/cancel'>Cancel</a></td>
-            <%end%>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Date</th>
+        <th>Location</th>
+        <th>Host</th>
+        <th>Action/Status</th>
+      </tr>
+    </thead>
+    <tbody>
+    <% @in_state.each do |event| %>
+      <tr>
+        <td>
+          <a href='/events/<%=event.id%>'><%=event.name%></a></td>
+        <td><%=event.date%></td>
+        <td><%=event.location%></td>
+        <td><%=event.user.first_name%></td>
+        <% if current_user!=event.user %>
+          <% unless event.users.include?(current_user) %>
+            <td><a href='/events/<%=event.id%>/join'>Join</a></td>
+            <%else%>
+              <td><a href='/events/<%=Attendee.where(user_id: current_user.id, event_id: event.id).first.id%>/cancel'>Cancel</a></td>
+              <%end%>
         <% else %>
         <td><a href='/events/<%=event.id%>/edit'>Edit</a> || <a href='/events/<%=event.id%>/delete' data-method ='delete'>Delete</a></td>
         </tr>
-        <%end%>
-    </tr>
-    <% end %>
-  </tbody>
-</table>
+      <%end%>
+      <%end%>
+    </tbody>
+  </table>
+
+  <h4>Here are some of the events in other states:</h4>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Date</th>
+        <th>Location</th>
+        <th>State</th>
+        <th>Host</th>
+        <th>Action/Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @out_of_state.each do |event| %>
+      <tr>
+        <td>
+          <a href='/events/<%=event.id%>'>
+            <%= event.name %>
+          </a>
+        </td>
+        <td><%= event.date %></td>
+        <td><%= event.location %> </td>
+        <td><%= event.state %></td>
+        <td><%= event.user.first_name %></td>
+        <% if current_user!=event.user %>
+          <% unless event.users.include?(current_user) %>
+            <td><a href='/events/<%=event.id%>/join'>Join</a></td>
+            <%else%>
+              <td><a href='/events/<%=Attendee.where(user_id: current_user.id, event_id: event.id).first.id%>/cancel'>Cancel</a></td>
+              <%end%>
+          <% else %>
+          <td><a href='/events/<%=event.id%>/edit'>Edit</a> || <a href='/events/<%=event.id%>/delete' data-method ='delete'>Delete</a></td>
+          </tr>
+          <%end%>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
 
 <fieldset>
-<legend>Add Event </legend>
-<form action='/events/create' method='post'>
-<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-    <p>Name: <input type='text' name='name'></p>
-    <p>Date: <input type='date' name='date' id='datefield'>
-    <script>
-          var today = new Date();
-          var dd = today.getDate();
-          var mm = today.getMonth()+1;
-          var yyyy = today.getFullYear();
-          if(dd<10){
-                  dd='0'+dd
-              }
-              if(mm<10){
-                  mm='0'+mm
-              }
+<legend> Add Event </legend>
+  <form action='/events/create' method='post'>
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+      <p>Name: <input type='text' name='name'></p>
+      <p>Date: <input type='date' name='date' id='datefield'>
+      <script>
+            var today = new Date();
+            var dd = today.getDate();
+            var mm = today.getMonth()+1;
+            var yyyy = today.getFullYear();
+            if(dd<10){
+                    dd='0'+dd
+                }
+                if(mm<10){
+                    mm='0'+mm
+                }
 
-          today = yyyy+'-'+mm+'-'+dd;
-          document.getElementById("datefield").setAttribute("min", today);
-      </script>
-      </p>
-    <p>Location:<input type='text' name='location'>
-      State: <select name='state'>
-        <option value="AL">Alabama</option>
-        <option value="AK">Alaska</option>
-        <option value="AZ">Arizona</option>
-        <option value="AR">Arkansas</option>
-        <option value="CA">California</option>
-        <option value="CO">Colorado</option>
-        <option value="CT">Connecticut</option>
-        <option value="DE">Delaware</option>
-        <option value="DC">District Of Columbia</option>
-        <option value="FL">Florida</option>
-        <option value="GA">Georgia</option>
-        <option value="HI">Hawaii</option>
-        <option value="ID">Idaho</option>
-        <option value="IL">Illinois</option>
-        <option value="IN">Indiana</option>
-        <option value="IA">Iowa</option>
-        <option value="KS">Kansas</option>
-        <option value="KY">Kentucky</option>
-        <option value="LA">Louisiana</option>
-        <option value="ME">Maine</option>
-        <option value="MD">Maryland</option>
-        <option value="MA">Massachusetts</option>
-        <option value="MI">Michigan</option>
-        <option value="MN">Minnesota</option>
-        <option value="MS">Mississippi</option>
-        <option value="MO">Missouri</option>
-        <option value="MT">Montana</option>
-        <option value="NE">Nebraska</option>
-        <option value="NV">Nevada</option>
-        <option value="NH">New Hampshire</option>
-        <option value="NJ">New Jersey</option>
-        <option value="NM">New Mexico</option>
-        <option value="NY">New York</option>
-        <option value="NC">North Carolina</option>
-        <option value="ND">North Dakota</option>
-        <option value="OH">Ohio</option>
-        <option value="OK">Oklahoma</option>
-        <option value="OR">Oregon</option>
-        <option value="PA">Pennsylvania</option>
-        <option value="RI">Rhode Island</option>
-        <option value="SC">South Carolina</option>
-        <option value="SD">South Dakota</option>
-        <option value="TN">Tennessee</option>
-        <option value="TX">Texas</option>
-        <option value="UT">Utah</option>
-        <option value="VT">Vermont</option>
-        <option value="VA">Virginia</option>
-        <option value="WA">Washington</option>
-        <option value="WV">West Virginia</option>
-        <option value="WI">Wisconsin</option>
-        <option value="WY">Wyoming</option>
-      </select>
-      </p>
+            today = yyyy+'-'+mm+'-'+dd;
+            document.getElementById("datefield").setAttribute("min", today);
+        </script>
+        </p>
+      <p>Location:<input type='text' name='location'>
+        State: <select name='state'>
+          <option value="AL">Alabama</option>
+          <option value="AK">Alaska</option>
+          <option value="AZ">Arizona</option>
+          <option value="AR">Arkansas</option>
+          <option value="CA">California</option>
+          <option value="CO">Colorado</option>
+          <option value="CT">Connecticut</option>
+          <option value="DE">Delaware</option>
+          <option value="DC">District Of Columbia</option>
+          <option value="FL">Florida</option>
+          <option value="GA">Georgia</option>
+          <option value="HI">Hawaii</option>
+          <option value="ID">Idaho</option>
+          <option value="IL">Illinois</option>
+          <option value="IN">Indiana</option>
+          <option value="IA">Iowa</option>
+          <option value="KS">Kansas</option>
+          <option value="KY">Kentucky</option>
+          <option value="LA">Louisiana</option>
+          <option value="ME">Maine</option>
+          <option value="MD">Maryland</option>
+          <option value="MA">Massachusetts</option>
+          <option value="MI">Michigan</option>
+          <option value="MN">Minnesota</option>
+          <option value="MS">Mississippi</option>
+          <option value="MO">Missouri</option>
+          <option value="MT">Montana</option>
+          <option value="NE">Nebraska</option>
+          <option value="NV">Nevada</option>
+          <option value="NH">New Hampshire</option>
+          <option value="NJ">New Jersey</option>
+          <option value="NM">New Mexico</option>
+          <option value="NY">New York</option>
+          <option value="NC">North Carolina</option>
+          <option value="ND">North Dakota</option>
+          <option value="OH">Ohio</option>
+          <option value="OK">Oklahoma</option>
+          <option value="OR">Oregon</option>
+          <option value="PA">Pennsylvania</option>
+          <option value="RI">Rhode Island</option>
+          <option value="SC">South Carolina</option>
+          <option value="SD">South Dakota</option>
+          <option value="TN">Tennessee</option>
+          <option value="TX">Texas</option>
+          <option value="UT">Utah</option>
+          <option value="VT">Vermont</option>
+          <option value="VA">Virginia</option>
+          <option value="WA">Washington</option>
+          <option value="WV">West Virginia</option>
+          <option value="WI">Wisconsin</option>
+          <option value="WY">Wyoming</option>
+        </select>
+        </p>
     <input type='submit' value='Add Event'>
   </form>
 </fieldset>

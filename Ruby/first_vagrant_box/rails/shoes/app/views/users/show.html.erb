@@ -1,5 +1,4 @@
-
-<a href='/shoes'> Go to All Products</a>
+<div align='right'><a href='/shoes'> Go to All Products</a></div>
 
 
 <h4> Hi, <%=current_user.first_name%>!</h4>
@@ -23,18 +22,18 @@
       <th>Action</th>
     </tr>
   </thead>
-<tbody>
-  <% @products.each do |item| %>
-    <% if item.user_id==current_user.id%>
-  <tr>
-    <td><%=item.name%></td>
-    <td><%=item.created_at.strftime('%b %d, %Y')%></td>
-    <td><%=number_to_currency(item.price)%></td>
-    <td><a href='/products/delete/<%=item.id%>' data-method='delete'> Remove Item</a></td>
-  </tr>
+  <tbody>
+    <% @unsold.each do |item| %>
+
+        <tr>
+          <td><%=item.name%></td>
+          <td><%=item.created_at.strftime('%b %d, %Y')%></td>
+          <td><%=number_to_currency(item.price)%></td>
+          <td><a href='/products/delete/<%=item.id%>' data-method='delete'> Remove Item</a></td>
+        </tr>
+
     <%end%>
-  <%end%>
-</tbody>
+  </tbody>
 </table>
 
 
@@ -43,13 +42,26 @@
   <thead>
     <tr>
       <th>Product</th>
-      <th>Date Posted</th>
+      <th>Date Sold</th>
       <th>Buyer</th>
-      <th>Action</th>
+      <th>Amount</th>
     </tr>
   </thead>
+  <tbody>
+    <% @sold_items.each do |item| %>
+      <% if item.product.user == current_user %>
+          <% @total_s += item.product.price %>
+        <tr>
+          <td><%= item.product.name %></td>
+          <td><%=item.product.created_at.strftime('%b %d, %Y')%></td>
+          <td><%= item.user.first_name%></td>
+          <td><%= number_to_currency(item.product.price)%></td>
+        </tr>
+      <%end%>
+    <% end %>
+  </tbody>
 </table>
-<h4>Total:</h4>
+<h4>Total:</h4> <p><%= number_to_currency(@total_s)%></p>
 
 
 <h4>Purchased</h4>
@@ -63,13 +75,17 @@
     </tr>
   </thead>
   <tbody>
+
     <% @purchased.each do |item| %>
-    <tr>
-      <td><%=item.product.name%></td>
-      <td><%=item.product.created_at.strftime('%b %d, %Y')%></td>
-      <td><%=item.user.first_name%><%=item.user.last_name%></td>
-      <td><%=number_to_currency(item.product.price)%></td>
-    </tr>
-    <%end%>
-</table>
-<h4>Total: </h4>
+      <% @total += item.product.price %>
+        <tr>
+          <td><%=item.product.name%></td>
+          <td><%=item.product.created_at.strftime('%b %d, %Y')%></td>
+          <td> <%=item.product.user.first_name%> </td>
+          <td><%=number_to_currency(item.product.price)%></td>
+        </tr>
+
+        <%end%>
+
+  </table>
+<h4>Total: </h4><p><%=number_to_currency(@total) %></p>

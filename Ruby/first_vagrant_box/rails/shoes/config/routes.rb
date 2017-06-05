@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'buyers/create'
+
   root 'sessions#index'
   post 'sessions/create' =>'sessions#create'
   delete 'sessions/logout' => 'sessions#logout'
@@ -7,6 +9,7 @@ Rails.application.routes.draw do
   get 'shoes' => 'products#show'
   post 'products/create' => 'products#create'
   get 'products/buy/:id' => 'products#buyer'
+  post 'products/buy/:id' => 'products#buyer'
   delete 'products/delete/:id' => 'products#delete'
 
 ####USERS####

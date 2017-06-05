@@ -7,10 +7,11 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <% if current_user %>
-  <a href='/users/show/<%=current_user.id%>'>Events Dashboard</a> || <a href='/sessions/logout'> Log Out </a>
-  <% end %>
-
+  <div align='right'>
+    <% if current_user %>
+      <a href='/users/show/<%=current_user.id%>'>Events Dashboard</a> || <a href='/sessions/logout'> Log Out </a>
+    <% end %>
+  </div>
   <% if flash[:errors] %>
     <% flash[:errors].each do |err| %>
       <p id="errors"><%= err %></p>

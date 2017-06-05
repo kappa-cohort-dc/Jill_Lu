@@ -7,22 +7,22 @@
 
 <table>
   <thead>
-  <tr>
-    <th>Attendee's Name</th>
-    <th>Location</th>
-    <th>State</th>
-  </tr>
+    <tr>
+      <th>Attendee's Name</th>
+      <th>Location</th>
+      <th>State</th>
+    </tr>
   </thead>
   <% @event.users.each do |ppl| %>
-  <tr>
-    <td><%=ppl.first_name%></td>
-    <td><%=ppl.location%></td>
-    <td><%=ppl.state%></td>
-  </tr>
+    <tr>
+      <td><%=ppl.first_name%></td>
+      <td><%=ppl.location%></td>
+      <td><%=ppl.state%></td>
+    </tr>
   <% end %>
 </table>
 
-
+<div>
 <fieldset>
 <legend>Discussion about this event</legend>
   <% @event.discussions.each do |chat| %>
@@ -37,3 +37,4 @@
   <input type='submit' value='Submit Comments'>
   </form>
 </fieldset>
+</div>
