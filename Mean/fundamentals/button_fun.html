@@ -1,0 +1,32 @@
+<script src="bower_components/jquery/dist/jquery.js"></script>
+<style type='text/css'>
+  button{
+    background-color: blue;
+    color: white;
+  }
+  .red{
+    background-color: red;
+  }
+  .green{
+    background-color: green;
+  }
+</style>
+
+
+<script type='text/javascript'>
+  $(document).ready(function(){
+    $('.click').click(function(){
+    	$(this).toggleClass('red');
+    });
+
+    $('.hover').hover(function(){
+    	$(this).addClass('green')
+      }, function(){
+      $(this).removeClass('green');
+    });
+  });
+
+</script>
+
+<button class='click'>BUTTON</button>
+<button class='hover'>HOVER</button>

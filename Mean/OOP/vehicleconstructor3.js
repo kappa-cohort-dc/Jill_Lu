@@ -23,7 +23,7 @@ function VehicleConstructor(name, wheels, passengers, speed){
   }
 
   VehicleConstructor.prototype.makeNoise = function(){
-    var noise= 'Honk HONK!!'
+    var noise= 'beep beep!!'
     console.log(noise)
     return this;
   }
@@ -39,10 +39,6 @@ function VehicleConstructor(name, wheels, passengers, speed){
 var Bike = new VehicleConstructor('Bike', 2, 2, 10);
 console.log(Bike);
 Bike.makeNoise();
-// Bike.makeNoise = function(){
-//   console.log('ring ring');
-// }
-// Bike.makeNoise();
 // Bike.move().checkMiles();
 
 // var Sedan = new VehicleConstructor('Sedan', 4, 5, 50);
