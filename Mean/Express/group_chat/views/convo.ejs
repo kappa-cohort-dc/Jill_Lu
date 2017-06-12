@@ -1,0 +1,30 @@
+<!-- <!doctype html>
+<html>
+<head>
+<title>Group Chat</title>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script type ="text/javascript" src="/socket.io/socket.io.js"></script>
+    <script type ="text/javascript">
+        $(document).ready(function (){
+            var socket = io.connect();
+          });
+    </script>
+<body>
+
+</body>
+</html> -->
+
+
+Events:
+1. connects
+2. send messages
+
+
+Client:
+1. ask for username, package and send back to server, gets back JSON object from server
+2. sends text through a form to backend, upper box should update 
+
+
+Server:
+1. listen for new connection, take name passed, create new user AND store it, then broadcast to everyone joined
+2. broadcast all

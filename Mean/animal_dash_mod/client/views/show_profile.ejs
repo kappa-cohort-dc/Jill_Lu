@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Animal Dashboard</title>
+  </head>
+  <body>
+    <h1><%=animal.name%> Profile</h1>
+    <p>Animal:<%= animal.name %></p>
+    <p>Level of Cuteness:<%= animal.cuteness %></p>
+    <p>Description:<%= animal.description %></p>
+    <a href='/animals/edit/<%=animal._id%>'>Edit</a> || <a href='/animals/destroy/<%=animal._id%>'>Delete</a>
+  </body>
+</html>
