@@ -1,0 +1,12 @@
+#main{
+  background-color: lightblue;
+  color: black;
+  border: 1px solid black;
+  width: 500px;
+  padding: 50px;
+  display: inline-block;
+  vertical-align: top;
+  position: relative;
+  left: 250px;
+  bottom: 400px;
+}

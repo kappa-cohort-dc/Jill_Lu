@@ -1,0 +1,14 @@
+#nav_bar{
+  background-color: lightblue;
+  color: black;
+  border: 1px solid black;
+  height: 400px;
+  width: 200px;
+}
+button{
+  background-color: white;
+  width: 120px;
+  display: block;
+  margin-top: 20px;
+  margin-left: 45px;
+}
