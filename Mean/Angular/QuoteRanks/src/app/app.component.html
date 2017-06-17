@@ -1,0 +1,18 @@
+<!--The whole content below can be removed with the new code.-->
+<fieldset>
+  <form (submit)="onSubmit()">
+    <h2>Add a Quote</h2>
+    <textarea name='content' [(ngModel)]='quote.content' #content='ngModel' required minlength='4'></textarea>
+    <div style="color:red" *ngIf="!content.valid"><p>Quote is required</p></div>
+
+    <p>Author:<input type='text' name='author' [(ngModel)]='quote.author' #author='ngModel' required minlength='1'></p>
+    <div style="color:red" *ngIf="!author.valid && quote.author <1"><p>Author is required</p></div>
+
+    <input *ngIf='content.valid && author.valid' type='submit' value='Add Quote'>
+    
+  </form>
+</fieldset>
+
+<app-main [quotes]='quotes'></app-main>
+
+{{ quote | json }}

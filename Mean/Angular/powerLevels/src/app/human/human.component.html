@@ -1,0 +1,8 @@
+<fieldset class='top-boxes'>
+  <legend>Human Component</legend>
+  <p>Power Level:</p>
+  <p>{{ newLevel }}  </p>
+  <h3 *ngIf="newLevel > 9000 && newLevel < 20000">Over 9000!</h3>
+  <h3 *ngIf="newLevel >= 20000 && newLevel < 50000">Superlative!</h3>
+  <h3 *ngIf="newLevel >= 50000">The One!</h3>
+</fieldset>

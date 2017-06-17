@@ -1,0 +1,18 @@
+<!--The whole content below can be removed with the new code.-->
+<!-- <div style="text-align:center"> -->
+  <h1>
+    Welcome to {{title}}!!
+  </h1>
+<!-- </div> -->
+<form (submit)="onSubmit(username)">
+<p>GitHub Username:<input required type='text' name='username' [(ngModel)]='username.username' #username ='ngModel'></p>
+<input type='submit' value='Calculate my GitHub Score'>
+</form>
+
+<!-- <div style='text-align: right'> -->
+<h2 *ngIf='score'>Your Score: {{score}}</h2>
+<!-- </div> -->
+<div style='color:red' *ngIf='score'>
+  <h3 *ngIf='score<20'> You need some work!</h3>
+  <h3 *ngIf='score>20 && score <50'> Good Start!</h3>
+  <h3 *ngIf='score>100 && score<200'> You need some work!</h3>

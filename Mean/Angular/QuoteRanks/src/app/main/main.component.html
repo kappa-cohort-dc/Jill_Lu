@@ -1,0 +1,15 @@
+<!-- <div style="text-align:right"> -->
+
+<h2>Quotes List</h2>
+<fieldset *ngFor='let quote of quotes, let i=index'>
+    <p>{{quote.content}}</p>
+    <p>Author by: {{quote.author}}</p>
+    <p>Vote Count: {{quote.count}}</p>
+  <button (click)='voteUp(quote)'>Vote Up</button>
+  <button (click)='voteDown(quote)'>Vote Down</button>
+  <button (click)='delete(i)'>Delete</button>
+
+
+</fieldset>
+
+<!-- </div> -->

@@ -1,0 +1,8 @@
+<fieldset class='top-boxes'>
+  <legend>Saiyan Component</legend>
+  <p>Power Level:</p>
+  <p>{{newLevel *10 }}</p>
+  <h3 *ngIf="newLevel*10 > 9000 && newLevel*10 < 20000">Over 9000!</h3>
+  <h3 *ngIf="newLevel*10 >= 20000 && newLevel*10 < 50000">Superlative!</h3>
+  <h3 *ngIf="newLevel >= 50000">The One!</h3>
+</fieldset>
