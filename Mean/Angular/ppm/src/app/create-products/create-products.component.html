@@ -1,0 +1,10 @@
+<fieldset>
+  <legend>Create Product</legend>
+  <form>
+      <p>Title:<input type='text' name='name' minlength='4' required></p>
+      <p>Price:<input type='number' name='price' required></p>
+      <p>Image:<input type='text' name='image'></p>
+
+    <input *ngIf='name.valid && price.valid' type='submit' value='Create'>
+  </form>
+</fieldset>
