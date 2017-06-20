@@ -1,9 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { HttpService } from './http.service';
+import { ProductService  } from './product.service';
 import { HttpModule } from '@angular/http';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -23,9 +22,9 @@ import { EditProductsComponent } from './edit-products/edit-products.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpModule
+    HttpModule,
   ],
-  providers: [HttpService],
+  providers: [ProductService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,6 +1,15 @@
 <fieldset>
+  <div style="text-align:center">
   <legend>Products List</legend>
-
+  <fieldset *ngFor= 'let product of products, let i=index'>
+    <p>Product Name:{{product.name}}</p>
+    <p>Product Price: ${{product.price}}</p>
+    <p *ngIf='!product.image'>No Image available </p>
+    <p *ngIf='product.image'><img src="{{product.image}}"></p>
+    <button [routerLink]="['/edit', i]"> Edit</button>
+    <button (click)='delete(i)'> Delete</button>
+  </fieldset>
+  </div>
 
 
 </fieldset>

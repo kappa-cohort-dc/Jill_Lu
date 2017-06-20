@@ -1,9 +1,10 @@
 <fieldset>
   <legend>Edit Product</legend>
-  <form>
-      <p>Title:<input type='text' name='name'></p>
-      <p>Price:<input type='number' name='price'></p>
-      <p>Imgae:<input type='text' name='image'></p>
-    <input type='submit' value='Delete'>  <input type='submit' value='Update'>
+  <form (submit)='update()'>
+      <p>Title:<input type='text' name='name' [(ngModel)]="products[index].name" value='{{product[index].name}}'></p>
+      <p>Price $: <input type='number' name='price' [(ngModel)]="products[index].price" value='{{product[index].price}}'></p>
+      <p>Image: <input type='text' name='image' [(ngModel)]="products[index].image" value='{{product[index].image}}'></p>
+      <input type='submit' value='update'>
   </form>
+ <button (click)='delete()'>Delete</button>
 </fieldset>
