@@ -5,7 +5,7 @@ var app = express();
 var animals = require('../controllers/animals.js')
 
 module.exports = function(app){
-  app.get('/', function(req, res) {
+  app.get('/animals', function(req, res) {
     animals.index(req, res)
   })
 
@@ -29,13 +29,13 @@ module.exports = function(app){
     animals.show(req, res)
   })
 
-  //edit process
-  app.post('/animals/:id', function(req, res){
+  //edit process update
+  app.put('/animals/:id', function(req, res){
     animals.edit_process(req, res)
   })
 
   //delete
-  app.get('/animals/destroy/:id', function(req, res){
+  app.delete('/animals/:id', function(req, res){
     animals.delete(req, res)
   })
 }

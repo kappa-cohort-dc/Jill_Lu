@@ -1,0 +1,8 @@
+<div>
+  <p*ngIf='users[users.length-2].score>users[users.length-1].score'>Winner: {{users[users.length-2].username}} - {{users[users.length-2].score}} </p>
+  <p*ngIf='users[users.length-2].score<users[users.length-1].score'>Loser: {{users[users.length-2].username}} - {{users[users.length-2].score}} </p>
+
+  <p*ngIf='users[users.length-1].score> users[users.length-2].score'>Winner: {{users[users.length-1].username}} - {{users[users.length-1].score}}</p>
+
+  <p *ngIf='users[users.length-1].score< users[users.length-2].score'> Loser: {{users[users.length-1].username}} - {{users[users.length-1].score}} </p>
+</div>

@@ -1,0 +1,9 @@
+<form (submit)='create()'>
+  <p>Note: <input type='text' [(ngModel)]='note.content' name='content' required></p> <input type='submit' value='Add Note'>
+</form>
+
+<div class='scroll'>
+  <fieldset *ngFor='let note of notes'>
+    <p>{{note.content}} noted on: {{note.createdAt | date: 'medium'}}</p>
+  </fieldset>
+</div>

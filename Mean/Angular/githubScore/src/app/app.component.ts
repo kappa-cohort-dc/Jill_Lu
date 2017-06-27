@@ -20,7 +20,6 @@ export class AppComponent {
     .then(githubinfo => { this.githubinfo = githubinfo
     this.score=githubinfo.followers + githubinfo.public_repos;
     console.log(this.score)
-    console.log('yoooo')
     })
     .catch(err =>{console.log(err)})
     }

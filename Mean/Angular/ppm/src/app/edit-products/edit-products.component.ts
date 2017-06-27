@@ -19,8 +19,10 @@ export class EditProductsComponent implements OnInit {
     private _router: Router,
     private _ActivatedRoute: ActivatedRoute
   ) {
+
+    //_ActivatedRoute.snapshot.params --can replace the below URL para
     this._ActivatedRoute.params.subscribe(param => { this._productService.getOneProduct(param.id)})
-  }
+  } //this._productService.getOneProduct()[id]
 
   ngOnInit() {
     this._productService.productsObservable.subscribe( (products) => {this.products = products;
@@ -37,4 +39,6 @@ export class EditProductsComponent implements OnInit {
     this.products.splice(index, 1);
     this._router.navigate(['/products'])
   }
+
+  //unsubscribe
 }

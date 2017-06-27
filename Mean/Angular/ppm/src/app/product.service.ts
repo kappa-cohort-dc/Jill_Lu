@@ -10,7 +10,7 @@ export class ProductService {
   constructor() { }
 
   updateProducts(products: Array<Product>){
-    this.productsObservable.next(products);
+    this.productsObservable.next(products)
   }
   getOneProduct(id){
     return this.products[id]

@@ -1,0 +1,28 @@
+<fieldset>
+  <form [hidden]='users[0]' (submit)='onSubmit1()'>
+  <h2>Player 1</h2>
+  <p>GitHub Username:<input type='text' [(ngModel)]='player1.username' name='username' required></p>
+  <input type='submit' value='Get User'>
+  </form>
+</fieldset>
+
+<fieldset>
+  <form [hidden]='users[1]' (submit)='onSubmit2()'>
+  <h2>Player 2</h2>
+  <p>GitHub Username:<input type='text' [(ngModel)]='player2.username' name='username' required></p>
+  <input type='submit' value='Get User'>
+  </form>
+</fieldset>
+
+<div>
+<fieldset *ngIf='users[0]'>
+  <p>{{player1.username}}</p>
+</fieldset>
+
+<fieldset *ngIf='users[1]'>
+  <p>{{player2.username}}</p>
+</fieldset>
+
+<button [routerLink]="['/battle']" *ngIf='users[0] && users[1]'>BATTTTTTTTLE</button>
+
+</div>
