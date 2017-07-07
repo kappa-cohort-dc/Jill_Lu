@@ -1,0 +1,10 @@
+<!-- <a [routerLink]="['/home']">Home</a> -->
+<!-- <button (click)="logOut()">Log Out</button> -->
+
+
+<h1>New Question </h1>
+<form (submit)='createQ()'>
+<p> Question: <textarea name='content' [(ngModel)]="question.content" minlength='10' required></textarea></p>
+<p> Description: <textarea name='description' [(ngModel)]='question.description'></textarea></p>
+<button><a [routerLink]="['/home']">Cancel</a></button> <input type='submit' value='Submit'>
+</form>

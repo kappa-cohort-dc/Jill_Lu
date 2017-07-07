@@ -26,7 +26,7 @@ var PostSchema = new mongoose.Schema({
 
 // define Comment Schema
 var CommentSchema = new mongoose.Schema({
-  _post: {type: Schema.Types.ObjectId, ref: 'Post'},
+  _post: {type: Schema.Types.ObjectId, ref: 'Post'}, 
   name: {type: String, required: true, minlength: 4},
   content: {type: String, required: true}
 }, {timestamps: true });

@@ -1,8 +1,8 @@
 var mongoose = require('mongoose');
+var users = require('../controllers/users.js') //change var name
 // var user = mongoose.model('User'); //model
 // var express = require('express')
 // var app = express();
-var users = require('../controllers/users.js') //change var name
 
 module.exports = function(app){
 

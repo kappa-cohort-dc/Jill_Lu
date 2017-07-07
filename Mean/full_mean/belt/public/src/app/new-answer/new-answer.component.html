@@ -1,0 +1,7 @@
+<!-- <a [routerLink]="['/home']">Home</a> -->
+<h1> Some Question </h1>
+<form (submit)='createAnswer()'>
+<p> Your Answer: <textarea name='content' [(ngModel)]='answer.content' minlength='5' required></textarea></p>
+<p> Supporting details: <textarea name='Adetails' [(ngModel)]='answer.details'></textarea></p>
+<button><a [routerLink]="['/question', question.id]">Cancel</a></button> <input type='submit' value='Submit'>
+</form>
